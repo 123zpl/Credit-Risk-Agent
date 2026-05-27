@@ -1,0 +1,27 @@
+[
+  {
+    "query": "你好",
+    "expected_intent": "chitchat",
+    "expected_first_node": "chat"
+  },
+  {
+    "query": "各信用评级的逾期率是多少？",
+    "expected_intent": "data_query",
+    "expected_after_data_query": "end"
+  },
+  {
+    "query": "逾期率上升的主要原因是什么？",
+    "expected_intent": "risk_analysis",
+    "expected_after_risk_analysis": "end"
+  },
+  {
+    "query": "给出降低逾期率的风控策略建议",
+    "expected_intent": "strategy",
+    "expected_after_risk_analysis": "strategy"
+  },
+  {
+    "query": "当前贷款利率是否合规？",
+    "expected_intent": "compliance",
+    "expected_after_data_query": "compliance"
+  }
+]

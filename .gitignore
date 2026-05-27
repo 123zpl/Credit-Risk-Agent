@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+.vscode/
+.idea/
+*.log
+.pytest_cache/
+
+# 本地对话记忆（含用户隐私数据，不提交到 git）
+.agent_memory/
+
+# ── 本地数据（不上传）────────────────────────────────────────────────────
+data/
+
+# ── 测试用例（不上传）────────────────────────────────────────────────────
+tests/
+
+# ── 文档：Superpowers 规划/规格（不上传）──────────────────────────────────
+docs/superpowers/
+
+# ── 文档：Prompt 设计稿（不上传）──────────────────────────────────────────
+docs/prompt_underwriting_feature.md
+docs/prompt_underwriting_rag.md
+docs/prompt_underwriting_rag_v2.md
+
+# ── 个人简历（不上传）────────────────────────────────────────────────────
+简历_AI_Agent开发.md
+信贷风控Agent平台_简历.md
+
+# ── 前端构建产物与依赖 ─────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/

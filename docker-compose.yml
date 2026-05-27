@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: credit_risk_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: credit_risk_2024
+      MYSQL_DATABASE: credit_risk_db
+      MYSQL_USER: credit_user
+      MYSQL_PASSWORD: credit_pass_123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  redis:
+    image: redis:latest
+    container_name: credit_risk_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+  # Milvus 使用已有的独立容器 (milvus-standalone, milvus-etcd, milvus-minio)
+  # 启动命令: docker start milvus-etcd milvus-minio milvus-standalone
+
+volumes:
+  mysql_data:
+  redis_data:
