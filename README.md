@@ -14,9 +14,9 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/数据概览.png" alt="数据概览看板" width="800"/>
+  <img src="docs/images/流程图.png" alt="系统流程框架图" width="920"/>
 </p>
-<p align="center"><sub>数据概览 — 贷款规模、逾期率、产品分布与风险指标</sub></p>
+<p align="center"><sub>系统流程框架 — 双轨 LangGraph（主分析同步 / 贷前审批异步）· 前端五入口 · 数据与安全底座</sub></p>
 
 <p align="center">
   <a href="#-核心特性">核心特性</a> ·
@@ -58,6 +58,13 @@
 ---
 
 ## 📸 界面预览
+
+### 智能分析 ` / `
+
+<p align="center">
+  <img src="docs/images/智能分析-数据查询.png" alt="智能分析-数据查询" width="900"/>
+</p>
+<p align="center"><sub>纯查数意图经 entry_router 直进 data_query — SQL 只读护栏生成表格与业务洞察</sub></p>
 
 ### 数据看板 ` /dashboard `
 
