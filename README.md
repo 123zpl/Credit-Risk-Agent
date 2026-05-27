@@ -283,6 +283,11 @@ Credit-Risk-Agent/
 ---
 
 <p align="center">
+  <sub>开发环境：Cursor · Composer 2.5</sub><br/>
+  <sub>Agent Skills：superpowers · ui-ux-pro-max</sub>
+</p>
+
+<p align="center">
   <sub>如果本项目对你有帮助，欢迎 Star ⭐</sub><br/>
   <sub>Credit Risk Agent Platform — Demo & Research Use</sub>
 </p>
