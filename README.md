@@ -2,6 +2,11 @@
 
 基于 **LangGraph** 的多 Agent 信贷风控系统：支持自然语言驱动的数据分析、风险归因、合规审查、策略建议，以及 **C 端贷款申请 → Celery 异步贷前审批** 完整链路。
 
+<p align="center">
+  <img src="docs/images/数据概览.png" alt="数据概览看板" width="920"/>
+</p>
+<p align="center"><sub>数据概览：贷款规模、逾期率、产品分布与风险指标一览</sub></p>
+
 ---
 
 ## 核心能力
@@ -12,6 +17,28 @@
 | **贷前授信** | 运营端批量/单笔审批；C 端 `/apply` 提交后 Celery 跑独立审批工作流 |
 | **数据看板** | 贷款指标概览、策略列表与导出 |
 | **安全护栏** | SQL 表白名单 + 只读校验 + AST 守卫；审批规则引擎 + 合规硬检查 |
+
+---
+
+## 界面预览
+
+### 数据看板（`/dashboard`）
+
+![数据概览](docs/images/数据概览.png)
+
+### 贷前授信（`/underwriting`）
+
+运营端查看待审批队列、已处理记录，并打开 Agent 生成的审批报告。
+
+| 待审批 | 已处理 |
+|:---:|:---:|
+| ![贷前授信-待审批](docs/images/贷前授信审批.png) | ![贷前授信-已处理](docs/images/贷前授信审批-已处理.png) |
+
+**审批报告详情**（含决策、风险评分与政策依据摘要）：
+
+![贷前授信-审批报告](docs/images/贷前授信审批-报告.png)
+
+> 贷款申请入口见 `/apply`：提交后由 Celery 异步执行贷前审批工作流，列表自动刷新至「已处理」。
 
 ---
 
@@ -182,13 +209,13 @@ powershell -ExecutionPolicy Bypass -File scripts/dev_start_frontend.ps1
 
 ## 前端页面
 
-| 路径 | 功能 |
-|------|------|
-| `/` | 多轮风控分析对话 |
-| `/dashboard` | 数据概览 |
-| `/strategies` | 策略列表 |
-| `/underwriting` | 贷前授信（待审批 / 已处理） |
-| `/apply` | C 端贷款申请 → 自动触发审批 |
+| 路径 | 功能 | 截图 |
+|------|------|------|
+| `/` | 多轮风控分析对话 | — |
+| `/dashboard` | 数据概览 | [数据概览](docs/images/数据概览.png) |
+| `/strategies` | 策略列表 | — |
+| `/underwriting` | 贷前授信（待审批 / 已处理 / 报告） | [待审批](docs/images/贷前授信审批.png) · [已处理](docs/images/贷前授信审批-已处理.png) · [报告](docs/images/贷前授信审批-报告.png) |
+| `/apply` | C 端贷款申请 → 自动触发审批 | — |
 
 ---
 
@@ -231,6 +258,7 @@ Credit-Risk-Agent/
 ├── frontend/
 ├── sql/init.sql
 ├── scripts/
+├── docs/images/              # README 截图
 ├── docs/policies/ docs/regulations/
 └── src/
     ├── agents/
