@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/流程图.png" alt="系统流程框架图" width="920"/>
+  <img src="docs/images/流程图.png?v=2" alt="系统流程框架图" width="920"/>
 </p>
 <p align="center"><sub>系统流程框架 — 双轨 LangGraph（主分析同步 / 贷前审批异步）· 前端五入口 · 数据与安全底座</sub></p>
 
