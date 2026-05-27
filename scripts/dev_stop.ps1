@@ -1,7 +1,7 @@
 # 停止本地开发服务（后端/前端端口 + Celery worker）
 $ErrorActionPreference = "SilentlyContinue"
 
-$ports = @(8000, 3000, 3001, 8010)
+$ports = @(8001, 8000, 3000, 3001, 8010)
 
 foreach ($port in $ports) {
     $conns = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue

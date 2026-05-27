@@ -9,10 +9,10 @@ Write-Host "Starting Celery worker in a new PowerShell window..."
 Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
-    "cd `"$((Join-Path $PSScriptRoot ".."))`"; conda activate llm2; celery -A src.infra.celery_app:celery_app worker -l info -P threads -c 4"
+    "cd `"$((Join-Path $PSScriptRoot ".."))`"; conda activate llm2; celery -A src.infra.celery_app:celery_app worker -l info -P threads -c 4 -n worker@%h"
 )
 
-Write-Host "Starting backend on http://0.0.0.0:8000 ..."
+Write-Host "Starting backend on http://0.0.0.0:8001 ..."
 Write-Host "Tip: run scripts/dev_stop.ps1 before restart to avoid duplicate processes."
 conda activate llm2
 python app.py
